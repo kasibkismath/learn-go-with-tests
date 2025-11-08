@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"kasibkismath/learn-go-with-tests/hello"
+
+	"kasibkismath.com/learn-go-with-tests/hello"
 )
 
 func main() {
