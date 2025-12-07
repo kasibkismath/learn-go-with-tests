@@ -34,6 +34,7 @@ func TestArea(t *testing.T) {
 }
 
 func TestAreaNew(t *testing.T) {
+	// concept - table driven tests
 	areaTests := []struct {
 		name    string
 		shape   Shape
