@@ -1,8 +1,13 @@
 package pointerserrors
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Points float64
+
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
 
 type Wallet struct {
 	balance Points
@@ -10,6 +15,14 @@ type Wallet struct {
 
 func (w *Wallet) Deposit(amount Points) {
 	w.balance += amount
+}
+
+func (w *Wallet) Withdraw(amount Points) error {
+	if amount > w.balance {
+		return ErrInsufficientFunds
+	}
+	w.balance -= amount
+	return nil
 }
 
 func (w Wallet) Balance() Points {
